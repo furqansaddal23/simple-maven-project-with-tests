@@ -6,6 +6,13 @@ pipeline {
     }
 
     stages {
+        stage('Pause') {
+            steps {
+                echo 'Simulating long-running pipeline...'
+                sleep time: 1000, unit: 'SECONDS'
+            }
+        }
+
         stage('Checkout') {
             steps {
                 git 'https://github.com/furqansaddal23/simple-maven-project-with-tests.git'
